@@ -141,3 +141,107 @@ An array can be iterated over using the LOOP statement, as shown in the previous
 ```gptlang
 <array_name>[<index>]
 ```
+
+Here is an example of accessing an array element in GPTLang:
+
+```
+# Define an array named "numbers" with the initial values [5, 8, 6, 3, 9, 1]
+VAR numbers:arr [5, 8, 6, 3, 9, 1]
+
+# Print the second element of the "numbers" array
+PT(numbers[1])
+```
+
+In this example, the PT(numbers[1]) statement will print the value of the second element in the numbers array, which is 8, to the screen.
+
+## User-Defined Data Types
+
+GPTLang supports user-defined data types, which allow users to create their own custom data structures. A user-defined data type can be declared with the TYPE keyword. The syntax for declaring a user-defined data type is:
+
+```gptlang
+TYPE <type_name>(<field1>:<data_type1>, <field2>:<data_type2>, ...):
+    <field_initialization>
+```
+
+The <type_name> field specifies the name of the user-defined data type. The <field1>, <field2>, ... fields specify the fields of the data type, and the <data_type1>, <data_type2>, ... fields specify the data type of each field. The <field_initialization> field specifies the initial values of the fields of the data type.
+
+Here is an example of declaring a user-defined data type in GPTLang:
+
+```
+# Define a user-defined data type named "point" with fields "x" and "y" of type int
+TYPE point(x:int, y:int):
+    # Initialize the fields of the "point" data type
+    x = 0
+    y = 0
+```
+
+Once a user-defined data type has been declared, it can be used to create variables of that data type. The syntax for declaring a variable of a user-defined data type is:
+
+```
+VAR <variable_name>:<type_name>
+```
+
+The <variable_name> field specifies the name of the variable, and the <type_name> field specifies the name of the user-defined data type.
+
+Here is an example of declaring a variable of a user-defined data type in GPTLang:
+
+```
+# Define a user-defined data type named "point" with fields "x" and "y" of type int
+TYPE point(x:int, y:int):
+    # Initialize the fields of the "point" data type
+    x = 0
+    y = 0
+
+# Declare a variable named "origin" of type "point"
+VAR origin:point
+```
+
+In this example, the origin variable will be of type point, and it will have the fields x and y with initial values of 0.
+
+# Built-in Functions and Features
+
+GPTLang has a rich set of built-in functions and features that make it easy to write powerful and efficient programs. Some of the notable built-in functions and features of GPTLang are described below.
+
+## PT() Function
+
+The PT() function is a built-in function that prints the specified value to the screen. The syntax for the PT() function is:
+
+```
+PT(<value>) -> None
+```
+
+The <value> field specifies the value to be printed. The PT() function does not return any value.
+
+Here is an example of using the PT() function in GPTLang:
+
+```
+# Define a variable named "message" with the initial value "Hello, world!"
+VAR message:str "Hello, world!"
+
+# Print the value of the "message" variable to the screen
+PT(message)
+```
+
+In this example, the PT(message) statement will print the value of the message variable, which is "Hello, world!", to the screen.
+
+## LEN() Function
+
+The LEN() function is a built-in function that returns the length of a specified value. The syntax for the LEN() function is:
+
+```
+LEN(<value>) -> int
+```
+
+The <value> field specifies the value for which the length is to be calculated. The LEN() function returns an integer value representing the length of the specified value.
+
+Here is an example of using the LEN() function in GPTLang:
+
+```
+# Define an array named "numbers" with the initial values [5, 8, 6, 3, 9, 1]
+VAR numbers:arr [5, 8, 6, 3, 9, 1]
+
+# Print the length of the "numbers" array to the screen
+PT(LEN(numbers))
+```
+
+In this example, the PT(LEN(numbers)) statement will print the length of the numbers array, which is 6, to the screen.
