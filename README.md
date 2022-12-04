@@ -6,12 +6,29 @@ GPTLang has a simple and intuitive syntax that is easy to learn and understand, 
 
 GPTLang has a rich set of built-in functions and features that make it easy to write powerful and efficient programs. It also has a flexible and extensible architecture that allows users to create their own functions and data types.
 
-# How to use in ChatGPT Sessions
+# How to use
 
-Q: If I want other ChatGPT sessions know the GPTLang, what should I say?
+Copy the raw content of [README.md](https://raw.githubusercontent.com/forrestchang/gptlang/main/README.md) and paste it to ChatGPT. Now you can write GPTLang in ChatGPT.
 
-> If you want other ChatGPT sessions to know about GPTLang, you can provide a brief description of the language, such as its features and syntax, and any notable built-in functions or features. You could also provide examples of how to use GPTLang to perform common tasks, such as defining variables, functions, and user-defined data types, and using conditional statements and loops. Additionally, you could mention any limitations or restrictions of the language, such as its knowledge cutoff or lack of support for certain features.
+# Example: Selection Sort
 
+```gptlang
+FUNC selection_sort(array:arr) -> arr:
+    # Iterate over the elements of the array
+    LOOP array -> elem:
+        # Find the minimum value in the remaining unsorted portion of the array
+        VAR min_index:int = array.index(elem)
+        LOOP array[min_index+1:] -> other_elem:
+            IF other_elem < array[min_index]:
+                min_index = array.index(other_elem)
+
+        # Swap the minimum value with the current element
+        array[array.index(elem)] = array[min_index]
+        array[min_index] = elem
+
+    # Return the sorted array
+    return array
+```
 
 # Basic Syntax
 
