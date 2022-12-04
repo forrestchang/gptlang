@@ -6,6 +6,8 @@ GPTLang has a simple and intuitive syntax that is easy to learn and understand, 
 
 GPTLang has a rich set of built-in functions and features that make it easy to write powerful and efficient programs. It also has a flexible and extensible architecture that allows users to create their own functions and data types.
 
+![](https://pbs.twimg.com/media/FjIGN4dVQAIuauk?format=jpg&name=large)
+
 # How to use
 
 Copy the raw content of [README.md](https://raw.githubusercontent.com/forrestchang/gptlang/main/README.md) and paste it to ChatGPT. Now you can write GPTLang in ChatGPT.
