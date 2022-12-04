@@ -1,20 +1,3 @@
-<!-- vscode-markdown-toc -->
-* 1. [Comments](#Comments)
-* 2. [Variables](#Variables)
-* 3. [Functions](#Functions)
-* 4. [Conditional Execution](#ConditionalExecution)
-* 5. [Loops](#Loops)
-* 6. [Arrays](#Arrays)
-* 7. [User-Defined Data Types](#User-DefinedDataTypes)
-* 8. [PT() Function](#PTFunction)
-* 9. [LEN() Function](#LENFunction)
-
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
-
 # Introduction
 
 GPTLang is a general-purpose, high-level programming language designed for ease of use and readability. It is an interpreted language, meaning that the code is executed directly by the interpreter, without the need for a separate compilation step.
