@@ -1,5 +1,9 @@
 # Introduction
 
+This repo is an experiment to see if we can create a programming language in ChatGPT.
+
+The original article: https://twitter.com/Tisoga/status/1599347662888882177
+
 GPTLang is a general-purpose, high-level programming language designed for ease of use and readability. It is an interpreted language, meaning that the code is executed directly by the interpreter, without the need for a separate compilation step.
 
 GPTLang has a simple and intuitive syntax that is easy to learn and understand, making it a great language for beginners and experienced programmers alike. It supports a wide range of data types, including numbers, strings, arrays, and user-defined data types.
