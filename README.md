@@ -16,7 +16,9 @@ GPTLang has a rich set of built-in functions and features that make it easy to w
 
 Copy the raw content of [README.md](https://raw.githubusercontent.com/forrestchang/gptlang/main/README.md) and paste it to ChatGPT. Now you can write GPTLang in ChatGPT.
 
-# Example: Selection Sort
+# Examples
+
+## Selection Sort
 
 ```gptlang
 FUNC selection_sort(array:arr) -> arr:
@@ -35,6 +37,43 @@ FUNC selection_sort(array:arr) -> arr:
     # Return the sorted array
     return array
 ```
+
+## Quick Sort
+
+```gptlang
+# Define a function named "quicksort" that sorts an array of int values using the quicksort algorithm
+FUNC quicksort(nums:arr) -> arr:
+    # If the array has zero or one element, return the array
+    IF LEN(nums) <= 1:
+        return nums
+    
+    # Initialize the pivot variable to the first element of the array
+    VAR pivot:int nums[0]
+
+    # Initialize the left and right arrays to empty arrays
+    VAR left:arr []
+    VAR right:arr []
+
+    # Iterate over the elements of the array
+    LOOP nums[1:] -> elem:
+        # If the current element is less than the pivot, append it to the left array,
+        # otherwise append it to the right array
+        IF elem < pivot:
+            left.append(elem)
+        ELSE:
+            right.append(elem)
+
+    # Recursively sort the left and right arrays
+    left = quicksort(left)
+    right = quicksort(right)
+
+    # Return the concatenation of the left array, the pivot, and the right array
+    return left + [pivot] + right
+```
+
+This function takes an array of int values as an argument and returns the sorted array. It uses the quicksort algorithm to sort the array by selecting a pivot element, partitioning the array into elements that are less than and greater than the pivot, and then recursively sorting the left and right partitions.
+
+For example, calling quicksort([5, 8, 6, 3, 9, 1]) would return [1, 3, 5, 6, 8, 9].
 
 # Basic Syntax
 
@@ -297,3 +336,36 @@ PT(message)
 In this example, the VAR statement defining the message variable uses implicit line joining. The message variable will have the initial value "Hello, world! This is a long message that spans multiple physical lines.", which is the concatenation of the two physical lines on which the VAR statement is written.
 
 The PT(message) statement will print the value of the message variable to the screen, which is "Hello, world! This is a long message that spans multiple physical lines."
+
+## Exception Handling
+
+GPTLang supports exception handling, which allows developers to handle runtime errors in their programs in a controlled and predictable way. Exception handling is performed using the TRY and EXCEPT keywords.
+
+The syntax for exception handling in GPTLang is:
+
+```
+TRY:
+    <statements>
+EXCEPT <exception_type> as <variable_name>:
+    <statements>
+```
+
+The TRY keyword indicates the start of a block of code that is to be executed and monitored for exceptions. The EXCEPT keyword indicates a block of code that is to be executed if an exception of the specified type is raised in the TRY block. The <exception_type> field specifies the type of the exception to be handled, and the <variable_name> field specifies the name of the variable that will contain the exception object.
+
+Here is an example of exception handling in GPTLang:
+
+```
+# Define a function named "divide" that takes two int arguments and returns their quotient
+FUNC divide(a:int, b:int) -> int:
+    TRY:
+        # Divide the first argument by the second argument and return the result
+        return a / b
+    EXCEPT ZeroDivisionError as e:
+        # If a ZeroDivisionError is raised, print an error message and return 0
+        PT("Error: Cannot divide by zero")
+        return 0
+```
+
+In this example, the divide() function is defined. It takes two int arguments, a and b, and returns their quotient. The function contains a TRY block that divides a by b and returns the result. It also contains an EXCEPT block that catches ZeroDivisionError exceptions and prints an error message if one is raised.
+
+If the divide() function is called with a=5 and b=0, a ZeroDivisionError exception will be raised in the TRY block. This exception will be caught by the EXCEPT block, which will print an error message and return 0.
