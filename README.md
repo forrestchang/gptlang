@@ -6,6 +6,13 @@ GPTLang has a simple and intuitive syntax that is easy to learn and understand, 
 
 GPTLang has a rich set of built-in functions and features that make it easy to write powerful and efficient programs. It also has a flexible and extensible architecture that allows users to create their own functions and data types.
 
+# How to use in ChatGPT Sessions
+
+Q: If I want other ChatGPT sessions know the GPTLang, what should I say?
+
+> If you want other ChatGPT sessions to know about GPTLang, you can provide a brief description of the language, such as its features and syntax, and any notable built-in functions or features. You could also provide examples of how to use GPTLang to perform common tasks, such as defining variables, functions, and user-defined data types, and using conditional statements and loops. Additionally, you could mention any limitations or restrictions of the language, such as its knowledge cutoff or lack of support for certain features.
+
+
 # Basic Syntax
 
 ##  1. <a name='Comments'></a>Comments
@@ -245,3 +252,25 @@ PT(LEN(numbers))
 ```
 
 In this example, the PT(LEN(numbers)) statement will print the length of the numbers array, which is 6, to the screen.
+
+## Implicit Line Joining
+
+GPTLang supports implicit line joining, which allows multiple physical lines of code to be treated as a single logical line. This can be useful for making long lines of code more readable by breaking them up into multiple physical lines.
+
+Implicit line joining is performed by ending a physical line with a backslash (\) character. The next physical line will be treated as part of the same logical line. This continues until a physical line is encountered that does not end with a backslash character.
+
+Here is an example of implicit line joining in GPTLang:
+
+```
+# Define a variable named "message" with the initial value "Hello, world!\
+# This is a long message that spans multiple physical lines."
+VAR message:str "Hello, world!\
+This is a long message that spans multiple physical lines."
+
+# Print the value of the "message" variable to the screen
+PT(message)
+```
+
+In this example, the VAR statement defining the message variable uses implicit line joining. The message variable will have the initial value "Hello, world! This is a long message that spans multiple physical lines.", which is the concatenation of the two physical lines on which the VAR statement is written.
+
+The PT(message) statement will print the value of the message variable to the screen, which is "Hello, world! This is a long message that spans multiple physical lines."
