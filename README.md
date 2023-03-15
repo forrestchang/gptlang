@@ -16,6 +16,12 @@ GPTLang has a rich set of built-in functions and features that make it easy to w
 
 Copy the raw content of [README.md](https://raw.githubusercontent.com/forrestchang/gptlang/main/README.md) and paste it to ChatGPT. Now you can write GPTLang in ChatGPT.
 
+# Implemention in Python
+
+Still WIP.
+
+👉 [gptlang.py](gptlang.py)
+
 # Examples
 
 ## Selection Sort
@@ -74,6 +80,62 @@ FUNC quicksort(nums:arr) -> arr:
 This function takes an array of int values as an argument and returns the sorted array. It uses the quicksort algorithm to sort the array by selecting a pivot element, partitioning the array into elements that are less than and greater than the pivot, and then recursively sorting the left and right partitions.
 
 For example, calling quicksort([5, 8, 6, 3, 9, 1]) would return [1, 3, 5, 6, 8, 9].
+
+## Knuth-Morris-Pratt (KMP) Algorithm
+
+```gptlang
+FUNC kmp_search(text:str, pattern:str) -> arr:
+    # Generate the longest proper prefix-suffix array (LPS array) for the pattern
+    VAR lps:arr = generate_lps(pattern)
+
+    VAR i:int = 0  # Index for text
+    VAR j:int = 0  # Index for pattern
+
+    VAR results:arr = []
+
+    WHILE i < LEN(text):
+        IF text[i] == pattern[j]:
+            i += 1
+            j += 1
+        ELSE:
+            IF j != 0:
+                j = lps[j - 1]
+            ELSE:
+                i += 1
+
+        # If the pattern is found in the text, add the starting index to the results array
+        IF j == LEN(pattern):
+            results.append(i - j)
+            j = lps[j - 1]
+
+    return results
+
+FUNC generate_lps(pattern:str) -> arr:
+    VAR lps:arr = [0] * LEN(pattern)
+    VAR len:int = 0  # Length of the previous longest proper prefix-suffix
+    VAR i:int = 1
+
+    WHILE i < LEN(pattern):
+        IF pattern[i] == pattern[len]:
+            len += 1
+            lps[i] = len
+            i += 1
+        ELSE:
+            IF len != 0:
+                len = lps[len - 1]
+            ELSE:
+                lps[i] = 0
+                i += 1
+
+    return lps
+
+
+VAR text:str = "ABABDABACDABABCABAB"
+VAR pattern:str = "ABABCABAB"
+
+VAR result:arr = kmp_search(text, pattern)
+PT(result)  # Output: [10], as the pattern starts at index 10 in the text
+```
 
 # Basic Syntax
 
