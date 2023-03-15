@@ -7,17 +7,31 @@ class GPTLangInterpreter:
         self.functions = {}
 
     def parse(self, code):
-        lines = code.split("\n")
+        lines = code.strip().split('\n')
         for line in lines:
             line = line.strip()
             if not line:
                 continue
-            self.parse_line(line)
+
+            # Handle variable assignment
+            if line.startswith('VAR'):
+                self.assign_variable(line)
+            # Handle function definition
+            elif line.startswith('DEF'):
+                self.define_function(line)
+            # Handle function calls
+            else:
+                self.call_function(line)
+
+    def assign_variable(self, line):
+        _, name_and_type, _, value = line.split(' ', 3)
+        name, _ = name_and_type.split(':')
+        self.variables[name] = self.evaluate_expression(value)
 
     def parse_line(self, line):
-        if line.startswith("def "):
+        if line.startswith("FUNC "):
             self.parse_function_definition(line)
-        elif line.startswith("let "):
+        elif line.startswith("VAR "):
             self.parse_variable_declaration(line)
         else:
             self.parse_expression(line)
@@ -39,8 +53,18 @@ class GPTLangInterpreter:
         return self.evaluate_expression(line)
 
     def evaluate_expression(self, expression):
-        # Implement logic to evaluate expressions in GPTLang
-        pass
+        expression = expression.strip()
+        if re.match(r'^\d+$', expression):
+            return int(expression)
+        elif expression in self.variables:
+            return self.variables[expression]
+        elif '+' in expression:
+            left, right = expression.split('+')
+            left_value = self.evaluate_expression(left.strip())
+            right_value = self.evaluate_expression(right.strip())
+            return left_value + right_value
+        else:
+            raise Exception(f"Invalid expression: {expression}")
 
     def call_function(self, function_name, args):
         function = self.functions[function_name]
@@ -66,6 +90,9 @@ class GPTLangInterpreter:
 # Example usage:
 interpreter = GPTLangInterpreter()
 code = """
-    // Your GPTLang code here
+    VAR x:int = 10
+    VAR y:int = 20
+    VAR z:int = x + y
 """
 interpreter.parse(code)
+print(interpreter.variables)  # Output: {'x': 10, 'y': 20, 'z': 30}
