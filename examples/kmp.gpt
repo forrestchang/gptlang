@@ -1,0 +1,73 @@
+/**
+ * GPTLang: Knuth-Morris-Pratt (KMP) Algorithm Implementation
+ * Author: GPT-4
+ * Date: 2023-03-15
+ *
+ * This file contains the implementation of the Knuth-Morris-Pratt (KMP) algorithm
+ * in GPTLang. The KMP algorithm is a linear time string matching algorithm that
+ * searches for occurrences of a pattern in a given text. It improves the search
+ * efficiency by using an auxiliary array (LPS array) to avoid unnecessary
+ * character comparisons.
+ *
+ * Functions:
+ * 1. kmp_search(text: str, pattern: str) -> arr
+ *    - Searches for occurrences of the pattern in the text and returns an array
+ *      containing the starting indices of all occurrences.
+ *
+ * 2. generate_lps(pattern: str) -> arr
+ *    - Generates the longest proper prefix-suffix array (LPS array) for the
+ *      given pattern to be used in the kmp_search function.
+ */
+
+
+FUNC kmp_search(text:str, pattern:str) -> arr:
+    # Generate the longest proper prefix-suffix array (LPS array) for the pattern
+    VAR lps:arr = generate_lps(pattern)
+
+    VAR i:int = 0  # Index for text
+    VAR j:int = 0  # Index for pattern
+
+    VAR results:arr = []
+
+    WHILE i < LEN(text):
+        IF text[i] == pattern[j]:
+            i += 1
+            j += 1
+        ELSE:
+            IF j != 0:
+                j = lps[j - 1]
+            ELSE:
+                i += 1
+
+        # If the pattern is found in the text, add the starting index to the results array
+        IF j == LEN(pattern):
+            results.append(i - j)
+            j = lps[j - 1]
+
+    return results
+
+FUNC generate_lps(pattern:str) -> arr:
+    VAR lps:arr = [0] * LEN(pattern)
+    VAR len:int = 0  # Length of the previous longest proper prefix-suffix
+    VAR i:int = 1
+
+    WHILE i < LEN(pattern):
+        IF pattern[i] == pattern[len]:
+            len += 1
+            lps[i] = len
+            i += 1
+        ELSE:
+            IF len != 0:
+                len = lps[len - 1]
+            ELSE:
+                lps[i] = 0
+                i += 1
+
+    return lps
+
+
+VAR text:str = "ABABDABACDABABCABAB"
+VAR pattern:str = "ABABCABAB"
+
+VAR result:arr = kmp_search(text, pattern)
+PT(result)  # Output: [10], as the pattern starts at index 10 in the text
