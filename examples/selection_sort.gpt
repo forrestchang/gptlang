@@ -1,0 +1,15 @@
+FUNC selection_sort(array:arr) -> arr:
+    # Iterate over the elements of the array
+    LOOP array -> elem:
+        # Find the minimum value in the remaining unsorted portion of the array
+        VAR min_index:int = array.index(elem)
+        LOOP array[min_index+1:] -> other_elem:
+            IF other_elem < array[min_index]:
+                min_index = array.index(other_elem)
+
+        # Swap the minimum value with the current element
+        array[array.index(elem)] = array[min_index]
+        array[min_index] = elem
+
+    # Return the sorted array
+    return array

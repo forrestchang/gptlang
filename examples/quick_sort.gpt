@@ -1,0 +1,28 @@
+# Define a function named "quicksort" that sorts an array of int values using the quicksort algorithm
+FUNC quicksort(nums:arr) -> arr:
+    # If the array has zero or one element, return the array
+    IF LEN(nums) <= 1:
+        return nums
+
+    # Initialize the pivot variable to the first element of the array
+    VAR pivot:int nums[0]
+
+    # Initialize the left and right arrays to empty arrays
+    VAR left:arr []
+    VAR right:arr []
+
+    # Iterate over the elements of the array
+    LOOP nums[1:] -> elem:
+        # If the current element is less than the pivot, append it to the left array,
+        # otherwise append it to the right array
+        IF elem < pivot:
+            left.append(elem)
+        ELSE:
+            right.append(elem)
+
+    # Recursively sort the left and right arrays
+    left = quicksort(left)
+    right = quicksort(right)
+
+    # Return the concatenation of the left array, the pivot, and the right array
+    return left + [pivot] + right
