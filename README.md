@@ -46,7 +46,7 @@ FUNC quicksort(nums:arr) -> arr:
     # If the array has zero or one element, return the array
     IF LEN(nums) <= 1:
         return nums
-    
+
     # Initialize the pivot variable to the first element of the array
     VAR pivot:int nums[0]
 
@@ -77,7 +77,7 @@ For example, calling quicksort([5, 8, 6, 3, 9, 1]) would return [1, 3, 5, 6, 8, 
 
 # Basic Syntax
 
-##  1. <a name='Comments'></a>Comments
+## 1. <a name='Comments'></a>Comments
 
 A comment in GPTLang starts with a hash character (#) and extends to the end of the physical line. A comment signifies the end of the logical line unless the implicit line joining rules are invoked. Comments are ignored by the syntax and are used to provide explanatory notes and documentation for the code.
 
@@ -87,7 +87,7 @@ Here is an example of a comment in GPTLang:
 # This is a comment
 ```
 
-##  2. <a name='Variables'></a>Variables
+## 2. <a name='Variables'></a>Variables
 
 A variable in GPTLang is a named storage location that holds a value. A variable must be declared with a VAR keyword before it can be used in the code. The syntax for declaring a variable is:
 
@@ -110,7 +110,7 @@ VAR count:int 0
 VAR pi:float 3.14
 ```
 
-##  3. <a name='Functions'></a>Functions
+## 3. <a name='Functions'></a>Functions
 
 A function in GPTLang is a self-contained block of code that performs a specific task and optionally returns a value. A function must be defined with a FUNC keyword before it can be called in the code. The syntax for defining a function is:
 
@@ -133,7 +133,7 @@ FUNC add(a:int, b:int) -> int:
     return result
 ```
 
-##  4. <a name='ConditionalExecution'></a>Conditional Execution
+## 4. <a name='ConditionalExecution'></a>Conditional Execution
 
 GPTLang supports conditional execution using the IF and ELSE keywords. The syntax for conditional execution is:
 
@@ -163,7 +163,7 @@ ELSE:
 
 In this example, the IF clause will be executed and the string "Ping" will be printed to the screen, because the value of the num variable is 10, which is greater than 8.
 
-##  5. <a name='Loops'></a>Loops
+## 5. <a name='Loops'></a>Loops
 
 GPTLang supports looping using the LOOP keyword. The syntax for looping is:
 
@@ -188,7 +188,7 @@ LOOP numbers -> num:
 
 In this example, the LOOP statement will iterate over the elements in the numbers array, and the value of each element will be assigned to the num variable in turn. For each iteration, the PT(num) statement will be executed, which will print the value of the num variable to the screen.
 
-##  6. <a name='Arrays'></a>Arrays
+## 6. <a name='Arrays'></a>Arrays
 
 GPTLang supports arrays, which are ordered collections of elements of the same data type. An array can be declared with the VAR keyword and the arr data type. The syntax for declaring an array is:
 
@@ -223,7 +223,7 @@ PT(numbers[1])
 
 In this example, the PT(numbers[1]) statement will print the value of the second element in the numbers array, which is 8, to the screen.
 
-##  7. <a name='User-DefinedDataTypes'></a>User-Defined Data Types
+## 7. <a name='User-DefinedDataTypes'></a>User-Defined Data Types
 
 GPTLang supports user-defined data types, which allow users to create their own custom data structures. A user-defined data type can be declared with the TYPE keyword. The syntax for declaring a user-defined data type is:
 
@@ -271,7 +271,7 @@ In this example, the origin variable will be of type point, and it will have the
 
 GPTLang has a rich set of built-in functions and features that make it easy to write powerful and efficient programs. Some of the notable built-in functions and features of GPTLang are described below.
 
-##  8. <a name='PTFunction'></a>PT() Function
+## 8. <a name='PTFunction'></a>PT() Function
 
 The PT() function is a built-in function that prints the specified value to the screen. The syntax for the PT() function is:
 
@@ -293,7 +293,7 @@ PT(message)
 
 In this example, the PT(message) statement will print the value of the message variable, which is "Hello, world!", to the screen.
 
-##  9. <a name='LENFunction'></a>LEN() Function
+## 9. <a name='LENFunction'></a>LEN() Function
 
 The LEN() function is a built-in function that returns the length of a specified value. The syntax for the LEN() function is:
 
