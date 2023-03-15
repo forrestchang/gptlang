@@ -1,6 +1,6 @@
 # Introduction
 
-This repo is an experiment to see if we can create a programming language in ChatGPT.
+This repo is an experiment to see if we can create a programming language in GPT-4.
 
 The original article: https://twitter.com/Tisoga/status/1599347662888882177
 
